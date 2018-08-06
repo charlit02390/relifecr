@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Usuarios</h1>
+     
+    <a class="btn btn-primary" data-toggle="collapse" href="#addUser" role="button" aria-expanded="false" aria-controls="addUser">
+        Agregar Usuario
+    </a>
+    <div class="collapse spacer" id="addUser" >
+        <form [formGroup]="userForm" (ngSubmit)="submit()">
+            <div class="form-group">
+                <label for="usernameUser">Username:</label>
+                <input type="text" class="form-control" id="usernameUser" formControlName="username">
+                <label for="passwordUser">Password:</label>
+                <input type="password" class="form-control" id="passwordUser" formControlName="password">
+                <label for="emailUser">Email:</label>
+                <input type="email" class="form-control" id="emailUser" formControlName="email">
+                <label for="nameUser">Nombre:</label>
+                <input type="text" class="form-control" id="nameUser" formControlName="name">
+                <label for="lastNameUser">Apellidos:</label>
+                <input type="text" class="form-control" id="lastNameUser" formControlName="lastName">
+                <label for="role">Role:</label>
+                <select class="form-control" id="role" formControlName="role"  >
+                    <option *ngFor="let role of roles" [value]="role" >{{ role.name }}</option>
+                </select> 
+                <label for="institution">Institucion:</label>
+                <select class="form-control" id="institution" formControlName="institution"  >
+                    <option *ngFor="let institution of institutions" [value]="institution" >{{ institution.name }}</option>
+                </select> 
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">{{btnSubmitLabel}}</button>
+        </form>
+
+    </div>
+    <div class=spacer>
+        <h3>Lista de Usuarios</h3>
+    </div>
+</div>
+

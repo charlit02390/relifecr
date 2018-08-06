@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Instituciones</h1>
+     
+    <a class="btn btn-primary" data-toggle="collapse" href="#addInstitution" role="button" aria-expanded="false" aria-controls="addInstitution">
+        Agregar Institucion
+    </a>
+    <div class="collapse spacer" id="addInstitution">
+        <form [formGroup]="institutionForm" (ngSubmit)="submit()">
+            <div class="form-group">
+                <label for="nameinstitution">Nombre:</label>
+                <input type="email" class="form-control" id="nameinstitution" formControlName="name">
+                <label for="addressinstitution">Direccion:</label>
+                <input type="email" class="form-control" id="addressinstitution" formControlName="address">
+                <label for="addressinstitution">Pais:</label>
+                <input type="email" class="form-control" id="addressinstitution" formControlName="country">
+                <label for="addressinstitution">Provincia:</label>
+                <input type="email" class="form-control" id="addressinstitution" formControlName="state">
+                <label for="addressinstitution">Canton:</label>
+                <input type="email" class="form-control" id="addressinstitution" formControlName="departament">
+                <label for="addressinstitution">Distrito:</label>
+                <input type="email" class="form-control" id="addressinstitution" formControlName="district">
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!institutionForm.valid">{{btnSubmitLabel}}</button>
+        </form>
+
+    </div>
+
+    <div class=spacer>
+        <h3>Lista de Instituciones</h3>
+    </div>
+</div>
