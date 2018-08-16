@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { DataService } from '../core/';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+    @Input() history: any;
+    @Input() withComments: any;
+    public isCollapsed = true;
+    constructor(private dataService: DataService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+
+    }
 
 }

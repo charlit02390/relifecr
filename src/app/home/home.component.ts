@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../core/';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+    public histories;
 
-  ngOnInit() {
-  }
+    constructor(private dataService: DataService) { }
+
+    ngOnInit() {
+        this.getHistories();
+    }
+
+    getHistories(){
+        this.dataService.get('api/blogs/1')
+            .then(response => {
+                console.log(response);
+                this.histories = response.blogs;
+            });
+    }
 
 }

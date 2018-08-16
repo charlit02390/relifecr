@@ -1,12 +1,14 @@
 export class History {
 
-    public id: number;
-    public title: string;
-    public body: string;
-    public user: number;
-    public approved: number;
     
-    constructor() {
+    
+    constructor(
+        public idhistories: number,
+        public type: number,
+        public title: string,
+        public body: string,
+        public user: number,
+        public approved: number) {
 
     }
 }

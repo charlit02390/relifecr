@@ -1,0 +1,36 @@
+<div class="container">
+    <div>
+        <h3>Lista de Historias por Aprobar</h3>
+
+        <table  mat-table [dataSource]="dataSource" class="table mat-elevation-z8">
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+                    </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="selectionChange(row) "
+                        [checked]="selection.isSelected(row)">
+                    </mat-checkbox>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="title">
+                <th scope="col" mat-header-cell *matHeaderCellDef> Titulo </th>
+                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+            </ng-container>
+            <ng-container matColumnDef="approved">
+                <th scope="col" mat-header-cell *matHeaderCellDef> Titulo </th>
+                <td mat-cell *matCellDef="let element"> {{element.approved}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+     <app-history *ngIf="selection.selected.length > 0" [history]='blogForm' [withComments]='false' > </app-history>
+     <button type="button" class="btn btn-primary" *ngIf="selection.selected.length > 0"  (click)="approved()" >Aprobar Historia</button>
+
+    
+</div>

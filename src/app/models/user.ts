@@ -1,15 +1,10 @@
-export class User {
-
-    public id: number;
-    public userName: string;
-    public password: string;
-    public name: string;
-    public lastName: string;
-    public email: string;
-    public role: number;
-    public institution: number;
-
-    constructor() {
-
-    }
+export interface User {
+     idusers?: number;
+     username: string;
+     password: string;
+     name?: string;
+     lastname?: string;
+     email?: string;
+     role?:number;
+     institution?: number;
 }

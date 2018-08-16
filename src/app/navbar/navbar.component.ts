@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth'
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isLogged = false;
+  labelLogin = 'Registrarse';
+  returnUrl: string;
 
-  ngOnInit() {
-  }
+  constructor(private authService: AuthService,
+              private route: ActivatedRoute,
+              private router: Router) { }
+
+    ngOnInit() {
+    }
+
+    logout(){
+        localStorage.removeItem('currentUser');  
+    }
 
 }

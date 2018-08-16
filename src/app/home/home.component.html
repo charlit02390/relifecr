@@ -1,5 +1,7 @@
 <div class="container">
-    
-<app-history> </app-history>
+    <div class ="container" *ngFor="let history of histories">
+        <app-history [history]='history' [withComments]='true'> </app-history>
+    </div>
+
 </div>
 
