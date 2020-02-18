@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth'
 
 @Component({
@@ -13,9 +12,7 @@ export class NavbarComponent implements OnInit {
   labelLogin = 'Registrarse';
   returnUrl: string;
 
-  constructor(private authService: AuthService,
-              private route: ActivatedRoute,
-              private router: Router) { }
+  constructor(public authService: AuthService) { }
 
     ngOnInit() {
     }

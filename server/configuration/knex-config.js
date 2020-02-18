@@ -4,10 +4,10 @@ var logger = require('winston');
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    host : 'ec2-52-36-200-181.us-west-2.compute.amazonaws.com',
+    host : 'localhost',
     user : 'root',
     password : 'root',
-    database : 'relifebd'
+    database : 'refilebd'
   }
 });
 
