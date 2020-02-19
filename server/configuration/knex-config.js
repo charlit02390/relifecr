@@ -11,7 +11,7 @@ var knex = require('knex')({
   }
 });
 
-logger.info('EDB - Connecting to localhost as root');
+logger.info('Relife - Connecting to localhost as root');
 
 knex.on('disconnect', function(error) {
     if (error) {
